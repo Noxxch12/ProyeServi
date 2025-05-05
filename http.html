@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Servidor HTTP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>HTTP</h1>
+						<p></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/http.png" alt="" /></span>
+								<h2>1. Instalación del sistema operativo</h2>
+								<p>Primero, debemos instalar Ubuntu Server en nuestra máquina virtual. Asegúrate de seguir todos los pasos necesarios para completar la instalación correctamente..</p>
+								<h2>2. Actualización del sistema</h2>
+								<p>Una vez instalado Ubuntu, actualizamos la lista de paquetes y el sistema con el siguiente comando:</br>
+									sudo apt update && sudo apt upgrade -y</p>
+								<h2>3. Instalación de Apache</h2>
+								<p>Para instalar el servidor Apache, ejecuta el siguiente comando:</br>
+									sudo apt install apache2 -y</br>
+									Este comando descargará e instalará Apache automáticamente.</p>
+								<h2>4. Verificar el estado del servicio</h3>
+								<p>Después de instalar Apache, verifica si el servicio está activo con:</br>
+									sudo systemctl status apache2</br>
+									Si el estado no aparece como "active (running)", puedes iniciar Apache manualmente con:</br>
+									sudo systemctl start apache2</p>
+								<h2>5. Comprobar funcionamiento del servidor</h2>
+								<p>Abre un navegador web y escribe la dirección IP de tu servidor Ubuntu. Si Apache está funcionando correctamente, verás una página de bienvenida</p>
+								
+								<div class="imgcontent">
+									<img width="80%" src="/images/Captura de pantalla 2025-03-30 200944.png" alt="">
+								</div>
+							</section>
+
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

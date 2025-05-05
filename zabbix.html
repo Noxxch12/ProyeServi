@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Servidor Monitoreo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>ZABBIX</h1>
+						<p></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/zabbix.png" alt="" /></span>
+								<h2>1. Descarga de Ubuntu Server</h2>
+								<p>Primero, descarga la imagen ISO de Ubuntu Server desde el sitio oficial:</br>
+									<a href="https://ubuntu.com/download/server">Descarga aquí</a>
+								</p>
+								
+								
+								<h2>2. Instalación en máquina virtual</h2>
+								<p>Una vez descargado Ubuntu Server, instálalo en una máquina virtual (puedes usar VirtualBox, VMware, etc.). 
+									Durante la instalación, asegúrate de tener acceso a la red.</p>
+								<h2>3. Configuración inicial del servidor</h2>
+								<p>Después de instalar Ubuntu Server, accede a la terminal e introduce los siguientes comandos para preparar el entorno:</br>
+									sudo apt update-Actualiza la lista de paquetes</br>
+									sudo apt upgrade-Actualiza los paquetes instalados</br>
+									sudo apt install net-tools-Instala herramientas de red como ifconfig</br>
+									ifconfig-Muestra la IP del servidor</br>
+									sudo apt install openssh-server-Instala el servidor SSH</br>
+									sudo systemctl status ssh-Verifica que el servicio SSH esté activo
+								</p>
+								<h2>4. Conexión SSH desde tu máquina física</h3>
+								<p>Con la IP que obtuviste con ifconfig, crea una conexión SSH desde tu máquina principal hacia el servidor, por ejemplo:</br>
+									<span style="color: red;">ssh noezavala@192.168.1.20</span>.</br>
+									Esto te permite administrar el servidor desde una terminal externa, facilitando la instalación de herramientas como Zabbix.
+
+
+								</p>
+								<h2>5. Instalación de Zabbix Server</h2>
+								<p>
+									Ahora, accede al sitio oficial para descargar la versión adecuada de Zabbix:</br>
+									<a href="https://www.zabbix.com/download">Descarga aquí</a></br>
+									<span style="color: red;">Selecciona</span>.</br>
+									Sistema operativo:Ubuntu 24.04</br>
+									Componentes: Server, Frontend, Agent</br>
+									Base de datos: MySQL</br>
+									Servidor web: Apache</br>
+									Luego, sigue los pasos que te proporciona el sitio para instalarlo.</br>
+									<span style="color: red;">Recomendaciones importantes:</span>.</br>
+									Ten paciencia durante la instalación.</br>
+									No interrumpas ni cierres la terminal.</br>
+									Copia y pega los comandos desde tu terminal SSH para mayor comodidad y rapidez.</br>
+								</p>
+								<h2>6. Configuración del agente Zabbix en otra máquina</h2>
+								<p>Necesitas una segunda máquina (puede ser virtual o física) que será monitoreada por Zabbix. En este ejemplo, se utilizó Windows 10.</br>
+									Descarga el agente desde el sitio oficial:</br>
+									<a href="https://www.zabbix.com/download_agents">Descarga aquí</a></br>
+									Instala el agente en Windows y en la ventana de configuración introduce la IP del servidor Zabbix cuando lo solicite.</p>
+								<div class="imgcontent">
+									<img width="80%" src="/images/Captura de pantalla 2025-03-31 191802.png" alt="">
+								</div>
+								<p></p>
+								<h2>7. Agregar un nuevo host en Zabbix</h2>
+								<p>Desde la interfaz web de Zabbix (accediendo con http://ip-del-servidor/zabbix):
+									Inicia sesión como administrador.</br>
+									Haz clic en la pestaña "Monitorización" > "Equipos"</br>
+									En la esquina superior derecha, haz clic en “Crear”.
+								</p>
+								<div class="imgcontent">
+									<img width="80%" src="/images/Captura de pantalla 2025-03-31 192354.png" alt="">
+								</div>
+								<p></p>
+								<h2>8. Configurar el nuevo host</h2>
+								<p>
+									<span style="color: red;">En la ventana de creación:</span></br>
+									Asigna un nombre descriptivo al host.</br>
+									Introduce la IP de la máquina monitoreada (la segunda máquina).</br>
+									Selecciona el grupo adecuado (puede ser “Windows hosts”).</br>
+									Asegúrate de usar el agente Zabbix como método de monitoreo.</br>
+									Guarda los cambios haciendo clic en “Add”.
+								</p>
+								<div class="imgcontent">
+									<img width="80%" src="/images/Captura de pantalla 2025-03-31 192653.png" alt="">
+								</div>
+								<p></p>
+								<h2>9. Verificar monitoreo</h2>
+								<p>Una vez agregado el host, en el panel de Zabbix deberías ver la actividad y los datos de monitoreo de la máquina Windows. Si todo está configurado correctamente, aparecerán los primeros valores y gráficos.</p>
+								<div class="imgcontent">
+									<img width="80%"  src="/images/Captura de pantalla 2025-03-30 174057.png" alt="">
+								</div>
+							</section>
+
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
