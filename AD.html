@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Servidor HTTP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>AD</h1>
+						<p></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/ad.png" alt="" /></span>
+								<h2>1. Descarga de la ISO de Windows Server 2022</h2>
+								<p>Lo primero que debemos hacer es descargar la imagen ISO de Windows Server 2022. Se recomienda elegir la versión en tu idioma para facilitar la configuración.</br>
+									<a href="https://www.microsoft.com/es-es/evalcenter/download-windows-server-2022?msockid=1c145ea12227603a276c4d2123446187">Descaga aquí</a>
+								</p>
+								
+								<h2>2. Montar la ISO en una Máquina Virtual</h2>
+								<p>Una vez descargada la ISO, procedemos a montarla en una máquina virtual (puede ser en plataformas como VirtualBox, VMware o Hyper-V).</p>
+								<h2>3. Instalación de Windows Server</h2>
+								<p>Con la ISO montada, iniciamos la instalación del sistema operativo. Al finalizar, accedemos al Administrador del Servidor y damos clic en la opción "Agregar roles y características".</p>
+								<div class="imgcontent">
+									<img width="80%" src="images/ad1.png" alt="">
+								</div>
+								<p></p>
+								<h2>4. Asistente de configuración</h3>
+								<p>Se abrirá un asistente de instalación. Avanzamos haciendo clic en "Siguiente" en cada paso, dejando la configuración por defecto. Al llegar a la ventana de selección de roles, activamos la casilla "Servicios de dominio de Active Directory (AD DS)".</p>
+								<div class="imgcontent">
+									<img width="80%" src="images/ad2.png" alt="">
+								</div>
+								<h2>5. Confirmación e instalación del rol</h2>
+								<p>Confirmamos la instalación y esperamos a que el proceso finalice.</p>
+								<h2>6. Creación de dominio</h2>
+								<p>Una vez instalado el rol AD DS, lo siguiente es crear un dominio y configurar el Active Directory. Para esta parte, puedes seguir el siguiente tutorial en video, que fue el que utilicé como guía:</br>
+									<a href="https://www.youtube.com/watch?v=_FOXZ8MujKg">Enlace de video</a>
+								</p>
+								<h2>7. Creación de políticas de grupo (GPO) para bloquear Microsoft Edge</h2>
+								<p>Una vez que tenemos el dominio y Active Directory configurados correctamente, el siguiente paso es crear una política de grupo para bloquear el acceso a Microsoft Edge.
+									Para esto, seguí el siguiente video tutorial:</br>
+									<a href="https://www.youtube.com/watch?v=b2lEMC9WlIc">Enlace de video</a>
+								</p>	
+								<div class="imgcontent">
+									<img src="" alt="">
+								</div>
+								<p></p>
+								<h2>8. Aplicación de la política</h2>
+								<p>Ya con la GPO creada y aplicada correctamente, al probar la apertura de Microsoft Edge, el sistema impide el acceso, lo que confirma que la política fue aplicada con éxito.</p>
+								 <div class="imgcontent">
+									<img width="80%" src="images/ad3.png" alt="">
+								 </div>
+								
+							</section>
+
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
