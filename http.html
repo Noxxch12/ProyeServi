@@ -30,7 +30,7 @@
 							<section id="content" class="main">
 								<span class="image main"><img src="images/http.png" alt="" /></span>
 								<h2>1. Instalación del sistema operativo</h2>
-								<p>Primero, debemos instalar Ubuntu Server en nuestra máquina virtual. Asegúrate de seguir todos los pasos necesarios para completar la instalación correctamente..</p>
+								<p>Primero, debemos instalar Ubuntu Server en nuestra máquina virtual. Asegúrate de seguir todos los pasos necesarios para completar la instalación correctamente.</p>
 								<h2>2. Actualización del sistema</h2>
 								<p>Una vez instalado Ubuntu, actualizamos la lista de paquetes y el sistema con el siguiente comando:</br>
 									sudo apt update && sudo apt upgrade -y</p>
@@ -41,10 +41,14 @@
 								<h2>4. Verificar el estado del servicio</h3>
 								<p>Después de instalar Apache, verifica si el servicio está activo con:</br>
 									sudo systemctl status apache2</br>
+									<div class="imgcontent">
+										<img width="80%" src="images/apache1.png" alt="">
+									</div> 
+									</br>
 									Si el estado no aparece como "active (running)", puedes iniciar Apache manualmente con:</br>
 									sudo systemctl start apache2</p>
 								<h2>5. Comprobar funcionamiento del servidor</h2>
-								<p>Abre un navegador web y escribe la dirección IP de tu servidor Ubuntu. Si Apache está funcionando correctamente, verás una página de bienvenida</p>
+								<p>Abre un navegador web y escribe la dirección IP de tu servidor Ubuntu. Si Apache está funcionando correctamente, verás una página de bienvenida, como esta.</p>
 								
 								<div class="imgcontent">
 									<img width="80%" src="images/ap1.png" alt="">

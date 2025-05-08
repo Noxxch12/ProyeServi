@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Servidor HTTP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>DHCP</h1>
+						<p></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/DHCP.png" alt="" /></span>
+								<h2>1. Instalación del sistema operativo</h2>
+								<p>Primero, instalamos Ubuntu Server en una máquina virtual.</p>
+								
+								<h2>2. Configuración de red en la máquina virtual</h2>
+								<p>Una vez instalado el sistema, configuramos las interfaces de red de la máquina virtual:</br>
+
+									Un adaptador en modo puente.</br>
+									
+									Un adaptador en red interna.</br>
+									
+									Ambos adaptadores deben tener activado el modo promiscuo.</p>
+								<div class="imgcontent">
+									<img width="80%" src="images/dhcp2.png" alt="">
+								</div>
+								<p></p>
+								<h2>3. Instalación del servidor DHCP</h2>
+								<p>Iniciamos la máquina virtual y ejecutamos el siguiente comando para instalar el servidor DHCP:</br>
+									sudo apt-get install isc-dhcp-server</p>
+								<h2>4. Configuración de direcciones IP</h3>
+								<p>Modificamos la configuración de red de las dos tarjetas utilizando Netplan, ejecuta el siguiente comando para entrar al archivo:</br>
+									sudo nano /etc/netplan/00-installer-config.yaml</br>
+									La interfaz enp0s3 (puente) debe tener una IP dinámica.</br>
+									La interfaz enp0s8 (interna) debe tener una IP estática.</p>
+									<div class="imgcontent">
+										<img width="80%" src="images/dhcp3.png" alt="">
+									</div>
+								<p></p>
+								<h2>5. Aplicar configuración de red</h2>
+								<p>Guardamos los cambios y aplicamos la configuración con el comando:</br>
+									sudo netplan apply</p>
+								<h2>6. Configuración del archivo de interfaces para DHCP</h2>
+								<p>Editamos el archivo de configuración del servidor DHCP para especificar la interfaz interna en la que se aplicara la configuración, con el comando:</br>
+									sudo nano /etc/default/isc-dhcp-server</br>
+									En la línea INTERFACESv4, escribimos el nombre de la interfaz interna (por ejemplo, enp0s8).
+									<div class="imgcontent">
+										<img width="80%" src="images/dhcp4.png" alt="">
+									</div>
+								</p>
+								<h2>7. Configuración del archivo principal del servidor DHCP</h2>
+								<p>
+									Editamos el archivo principal del servidor DHCP con el comando:</br>
+									sudo nano /etc/dhcp/dhcpd.conf</br>
+									<span style="color: red;">En este archivo definimos:</span></br>							
+									La subred y máscara de red.</br>
+									El rango de direcciones IP que se asignarán.</br>
+									El tiempo de concesión (lease time).</br>
+									La puerta de enlace predeterminada.</br>
+									El servidor DNS.</br>
+									Por ejemplo:
+									<div class="imgcontent">
+										<img width="80%" src="images/dhcp5.png" alt="">
+									</div>
+								</p>
+								<h2>8. Validar la configuración</h2>
+								<p>Guardamos el archivo y comprobamos que no haya errores de sintaxis con el comando:</br>
+									sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
+								</p>
+								<h2>9. Reiniciar el servicio DHCP</h2>
+									<p>Reiniciamos el servidor para aplicar la configuración con el comando:</br>
+									sudo service isc-dhcp-server restart</p>
+								<p></p>
+								<h2>10. Verificar el estado del servicio</h2>
+								<p>Comprobamos que el servidor DHCP esté activo:</br>
+									sudo service isc-dhcp-server status</p>
+									<div class="imgcontent">
+										<img width="80%" src="images/dhcp6.png" alt="">
+									</div>
+								<p></p>
+							<h2>11. Verificación en una máquina cliente</h2>
+								<p>Iniciamos otra máquina virtual en la misma red interna y verificamos en su configuración de red que haya recibido una dirección IP automáticamente.
+									La IP obtenida debe encontrarse dentro del rango definido en el archivo dhcpd.conf, lo que confirma que el servidor DHCP funciona correctamente.
+									<div class="imgcontent">
+										<img width="80%" src="images/dhcp7.png" alt="">
+									</div>
+								</p>
+								
+							</section>
+
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
