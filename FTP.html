@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Servidor HTTP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>FTP</h1>
+						<p></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/FTP.png" alt="" /></span>
+								<h2>1. Instalar Ubuntu Server</h2>
+								<p>
+									Primero, debemos instalar Ubuntu Server en una máquina virtual.
+								</p>
+								<h2>2. Actualizar los repositorios</h2>
+								<p>Una vez instalado, actualizamos los repositorios con el siguiente comando:</br>
+									sudo apt update && sudo apt upgrade -y</p>
+								<h2>3. Instalar el servidor FTP</h2>
+								<p>Instalamos el servidor FTP usando el siguiente comando:</br>
+									sudo apt install vsftpd</p>
+								<h2>4. Configurar el servidor FTP</h2>
+								<p>Editamos el archivo de configuración con el siguiente comando:</br>
+									sudo nano /etc/vsftpd.conf</br>
+									Buscamos la línea write_enable=YES y nos aseguramos de que no esté comentada (eliminamos el símbolo # si lo tiene).
+									<div class="imgcontent">
+										<img width="80%" src="images/ftp1.png" alt="">
+									</div>
+								<p></p>
+								<h2>5. Reiniciar el servicio</h2>
+								<p>Aplicamos los cambios reiniciando el servicio con:</br>
+									sudo systemctl restart vsftpd.service</p>
+								</p>
+
+								<h2>6. Crear un nuevo usuario</h2>
+								<p>Creamos un usuario con el comando:</br>
+									adduser nombre_de_usuario
+									Completamos los campos solicitados.</p>
+								<h2>7. Verificar que el usuario fue creado</h2>
+								<p>Usamos el siguiente comando para verificar:</br>
+									sudo cat /etc/passwd
+								</p>
+								<h2>8. Habilitar el servicio al iniciar</h2>
+								<p>Para que el servidor FTP se inicie automáticamente al encender la máquina, ejecutamos el comando:</br>
+									sudo systemctl enable vsftpd.service</p>
+								<h2>9. Instalar FileZilla</h2>
+								<p>Descargamos e instalamos FileZilla en nuestra computadora.</br>
+									<a href="https://filezilla-project.org/download.php">Descarga aquí</a>
+								</p>
+								<h2>10. Conectar a través de FileZilla</h2>
+								<p>Abrimos FileZilla y colocamos los siguientes datos:</br>
+									Host: Dirección IP del servidor</br>									
+									Nombre de usuario: Usuario creado</br>								
+									Contraseña: Contraseña del usuario</br>							
+									Puerto: 21
+									<div class="imgcontent">
+										<img width="80%" src="images/ftp2.png" alt="">
+									</div>
+								</p>
+								<h2>11. Crear un nuevo directorio y crear un archivo</h2>
+								<p>Dentro de la carpeta del usuario FTP, creamos un nuevo directorio.</br>
+								   Creamos un archivo nuevo dentro del directorio del usuario FTP (por ejemplo, en /home/ftpuser).
+								   <div class="imgcontent">
+										<img width="80%" src="images/ftp3.png" alt="">
+								   </div>
+								</p>
+								<h2>13. Verificar el funcionamiento</h2>
+								<p>Por último, accedemos a la carpeta del usuario para verificar que el archivo creado esté visible, lo que confirma que el servidor FTP está funcionando correctamente.
+									<div class="imgcontent">
+										<img width="80%" src="images/ftp4.png" alt="">
+									</div>
+								</p>
+							</section>
+
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
